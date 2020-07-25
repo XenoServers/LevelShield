@@ -1,0 +1,45 @@
+# MADE BY:
+#  __    __                                          __        __  __  __
+# /  |  /  |                                        /  |      /  |/  |/  |
+# $$ |  $$ |  ______   _______    ______    ______  $$ |____  $$/ $$ |$$/   _______  __    __
+# $$  \/$$/  /      \ /       \  /      \  /      \ $$      \ /  |$$ |/  | /       |/  |  /  |
+#  $$  $$<  /$$$$$$  |$$$$$$$  |/$$$$$$  |/$$$$$$  |$$$$$$$  |$$ |$$ |$$ |/$$$$$$$/ $$ |  $$ |
+#   $$$$  \ $$    $$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |$$ |$$ |$$ |      $$ |  $$ |
+#  $$ /$$  |$$$$$$$$/ $$ |  $$ |$$ \__$$ |$$ |__$$ |$$ |  $$ |$$ |$$ |$$ |$$ \_____ $$ \__$$ |
+# $$ |  $$ |$$       |$$ |  $$ |$$    $$/ $$    $$/ $$ |  $$ |$$ |$$ |$$ |$$       |$$    $$ |
+# $$/   $$/  $$$$$$$/ $$/   $$/  $$$$$$/  $$$$$$$/  $$/   $$/ $$/ $$/ $$/  $$$$$$$/  $$$$$$$ |
+#                                         $$ |                                      /  \__$$ |
+#                                         $$ |                                      $$    $$/
+#                                         $$/                                        $$$$$$/
+VERSION: "1.0.0" # Internal use only
+
+messages:
+  no-fly: §cYou can't fly here
+
+# These settings are used when a player is not in an area and when the world has no specific flags
+fallback:
+  interact: false
+  damage: false
+  pvp: false
+  edit: false
+  fly: false
+  drop: false
+  hunger: false
+  explode: false
+  bow: false
+  burn: false
+  effects: false
+
+# These settings are used when creating a new area
+default:
+  interact: false
+  damage: false
+  pvp: false
+  edit: false
+  fly: false
+  drop: false
+  hunger: false
+  explode: false
+  bow: false
+  burn: false
+  effects: false

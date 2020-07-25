@@ -1,0 +1,24 @@
+name: LevelShield
+author: Xenophilicy
+version: 1.0.0
+main: Xenophilicy\LevelShield\LevelShield
+load: POSTWORLD
+api: 3.0.0
+permissions:
+  levelshield:
+    default: op
+    children:
+      levelshield.override:
+        default: op
+      levelshield.create:
+        default: op
+      levelshield.delete:
+        default: op
+      levelshield.flag:
+        default: op
+      levelshield.list:
+        default: op
+      levelshield.tp:
+        default: op
+      levelshield.manageworlds:
+        default: op

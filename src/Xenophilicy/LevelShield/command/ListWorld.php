@@ -29,15 +29,6 @@ class ListWorld extends SubCommand {
         $sender->sendMessage(TF::AQUA . "--- All worlds ---");
         foreach($allworlds as $world){
             $sender->sendMessage(TF::GREEN . "- [" . $world->getName() . "]");
-            $flags = $world->getFlags();
-            $sender->sendMessage(TF::YELLOW . "  Flags:");
-            foreach($flags as $flag => $value){
-                if($value){
-                    $sender->sendMessage(TF::GOLD . "   {$flag}: " . TF::GREEN . "true");
-                }else{
-                    $sender->sendMessage(TF::GOLD . "   {$flag}: " . TF::RED . "false");
-                }
-            }
         }
         return true;
     }

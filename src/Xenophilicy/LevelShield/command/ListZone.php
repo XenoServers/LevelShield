@@ -63,20 +63,7 @@ class ListZone extends SubCommand {
     private function listZones(array $zones, CommandSender $sender, $showLevel = true){
         foreach($zones as $zone){
             $sender->sendMessage(TF::GREEN . "- [" . $zone->getName() . "]");
-            $pos1 = $zone->getPos1();
-            $pos2 = $zone->getPos1();
-            $flags = $zone->getFlags();
-            $sender->sendMessage(TF::YELLOW . "  Pos 1: {$pos1->x}, {$pos1->y}, {$pos1->z}");
-            $sender->sendMessage(TF::YELLOW . "  Pos 2: {$pos2->x}, {$pos2->y}, {$pos2->z}");
             if($showLevel) $sender->sendMessage(TF::YELLOW . "  Level: " . $zone->getLevel()->getName());
-            $sender->sendMessage(TF::YELLOW . "  Flags:");
-            foreach($flags as $flag => $value){
-                if($value){
-                    $sender->sendMessage(TF::GOLD . "   {$flag}: " . TF::GREEN . "true");
-                }else{
-                    $sender->sendMessage(TF::GOLD . "   {$flag}: " . TF::RED . "false");
-                }
-            }
         }
     }
 }

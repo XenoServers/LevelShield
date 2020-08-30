@@ -1,6 +1,6 @@
 name: LevelShield
 author: Xenophilicy
-version: 1.0.0
+version: 1.0.1
 main: Xenophilicy\LevelShield\LevelShield
 load: POSTWORLD
 api: 3.0.0

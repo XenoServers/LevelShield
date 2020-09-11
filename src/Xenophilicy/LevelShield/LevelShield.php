@@ -118,7 +118,7 @@ class LevelShield extends PluginBase implements Listener {
     }
     
     public function getWorldFolderPath(string $name): string{
-        return str_replace(["PocketMine-MP.phar/", "phar://"], "", LevelShield::getInstance()->getServer()->getFilePath()) . "worlds/" . $name;
+        return self::$settings["world-path"] . $name;
     }
     
     public static function getInstance(): self{

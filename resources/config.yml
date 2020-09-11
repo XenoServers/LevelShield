@@ -13,6 +13,8 @@
 #                                         $$/                                        $$$$$$/
 VERSION: "1.0.0" # Internal use only
 
+world-path: "C:/Users/xenop/Documents/Test/worlds"
+
 messages:
   no-fly: §cYou can't fly here
 

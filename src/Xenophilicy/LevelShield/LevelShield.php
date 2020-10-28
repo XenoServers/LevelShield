@@ -122,7 +122,7 @@ class LevelShield extends PluginBase implements Listener {
     }
     
     public function getWorldFolderPath(string $name): string{
-        return getcwd() . DIRECTORY_SEPARATOR . "worlds" . DIRECTORY_SEPARATOR . $name;
+        return $this->getServer()->getDataPath() . DIRECTORY_SEPARATOR . "worlds" . DIRECTORY_SEPARATOR . $name;
     }
     
     public function getWorldManager(): WorldManager{

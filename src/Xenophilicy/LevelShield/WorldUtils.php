@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace Xenophilicy\LevelShield;
 
-
 use pocketmine\command\CommandSender;
 use pocketmine\nbt\BigEndianNBTStream;
 use pocketmine\nbt\tag\CompoundTag;

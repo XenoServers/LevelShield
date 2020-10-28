@@ -17,7 +17,7 @@ use pocketmine\utils\TextFormat as TF;
 class WorldUtils {
     
     public static function checkData(CommandSender $sender, string $path, string $name): bool{
-        if(!($levelDatContent = file_get_contents($path . "/level.dat"))){
+        if(!($levelDatContent = file_get_contents($path . DIRECTORY_SEPARATOR . "level.dat"))){
             $sender->sendMessage(TF::RED . "Target data file doesn't exist");
             return false;
         }
@@ -33,7 +33,7 @@ class WorldUtils {
             return false;
         }
         $dataWorkingWith->setString("LevelName", $name);
-        if(!(file_put_contents($path . "/level.dat", $nbt->writeCompressed(new CompoundTag("", [$dataWorkingWith]))))){
+        if(!(file_put_contents($path . DIRECTORY_SEPARATOR . "level.dat", $nbt->writeCompressed(new CompoundTag("", [$dataWorkingWith]))))){
             $sender->sendMessage(TF::RED . "Target data wasn't saved correctly");
             return false;
         }
@@ -45,10 +45,10 @@ class WorldUtils {
         $objects = scandir($directory);
         foreach($objects as $object){
             if($object === "." || $object === "..") continue;
-            if(is_dir($directory . "/" . $object)){
-                self::delete($directory . "/" . $object);
+            if(is_dir($directory . DIRECTORY_SEPARATOR . $object)){
+                self::delete($directory . DIRECTORY_SEPARATOR . $object);
             }else{
-                unlink($directory . "/" . $object);
+                unlink($directory . DIRECTORY_SEPARATOR . $object);
             }
         }
         rmdir($directory);
@@ -60,10 +60,10 @@ class WorldUtils {
         mkdir($to);
         foreach($objects as $object){
             if($object === "." || $object === "..") continue;
-            if(is_dir($from . "/" . $object)){
-                self::copy($from . "/" . $object, $to . "/" . $object);
+            if(is_dir($from . DIRECTORY_SEPARATOR . $object)){
+                self::copy($from . DIRECTORY_SEPARATOR . $object, $to . DIRECTORY_SEPARATOR . $object);
             }else{
-                copy($from . "/" . $object, $to . "/" . $object);
+                copy($from . DIRECTORY_SEPARATOR . $object, $to . DIRECTORY_SEPARATOR . $object);
             }
         }
     }

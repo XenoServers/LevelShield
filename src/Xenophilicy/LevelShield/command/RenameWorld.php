@@ -31,7 +31,7 @@ class RenameWorld extends SubCommand {
             $sender->sendMessage(TF::RED . "Enter a target world name");
             return false;
         }
-        if(is_null($oldworld = LevelShield::getInstance()->getWorldManager()->getWorld($target))){
+        if(is_null($oldworld = LevelShield::getInstance()->getWorldManager()->getWorld($target)) || is_null($oldlevel = (LevelShield::getInstance()->getServer()->getLevelByName($target)))){
             $sender->sendMessage(TF::RED . "That world doesn't exist");
             return false;
         }
@@ -44,7 +44,7 @@ class RenameWorld extends SubCommand {
             $sender->sendMessage(TF::RED . "You can't rename a world to its current name");
             return false;
         }
-        $targetPath = LevelShield::getInstance()->getWorldFolderPath(LevelShield::getInstance()->getServer()->getLevelByName($target)->getFolderName());
+        $targetPath = LevelShield::getInstance()->getWorldFolderPath($oldlevel->getFolderName());
         $newPath = LevelShield::getInstance()->getWorldFolderPath($new);
         $level = LevelShield::getInstance()->getServer()->getLevelByName($target);
         if(LevelShield::getInstance()->getServer()->isLevelLoaded($target)){
@@ -53,14 +53,14 @@ class RenameWorld extends SubCommand {
                 return false;
             }
         }
-        if(!WorldUtils::checkData($sender, $newPath, $new)) return false;
         $world = LevelShield::getInstance()->getWorldManager()->registerWorld($new);
         $world->setFlags($oldworld->getFlags());
         LevelShield::getInstance()->getWorldManager()->deleteWorld($target);
         WorldUtils::copy($targetPath, $newPath);
         WorldUtils::delete($targetPath);
+        if(!WorldUtils::checkData($sender, $newPath, $new)) return false;
         LevelShield::getInstance()->getServer()->loadLevel($new);
-        $sender->sendMessage(TF::GREEN . "World " . TF::AQUA . $target . TF::GREEN . "renamed to " . TF::AQUA . $new);
+        $sender->sendMessage(TF::GREEN . "World " . TF::AQUA . $target . TF::GREEN . " renamed to " . TF::AQUA . $new);
         return true;
     }
 }

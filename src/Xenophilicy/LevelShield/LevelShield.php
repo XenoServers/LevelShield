@@ -60,6 +60,10 @@ class LevelShield extends PluginBase implements Listener {
         return self::$settings["messages"][$setting] ?? null;
     }
     
+    public static function getInstance(): self{
+        return self::$instance;
+    }
+    
     public function onEnable(): void{
         self::$instance = $this;
         $this->getServer()->getPluginManager()->registerEvents(new EventListener(), $this);
@@ -118,11 +122,7 @@ class LevelShield extends PluginBase implements Listener {
     }
     
     public function getWorldFolderPath(string $name): string{
-        return self::$settings["world-path"] . $name;
-    }
-    
-    public static function getInstance(): self{
-        return self::$instance;
+        return getcwd() . DIRECTORY_SEPARATOR . "worlds" . DIRECTORY_SEPARATOR . $name;
     }
     
     public function getWorldManager(): WorldManager{

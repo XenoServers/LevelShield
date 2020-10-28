@@ -71,31 +71,31 @@ class Zone {
     public function getFlags(): array{
         return $this->flags;
     }
-
-    public function getFlag(string $flag): bool{
-        if(isset($this->flags[$flag])) return $this->flags[$flag];
-        return false;
-    }
-
-    public function setFlag(string $flag, bool $value): void{
-        $this->flags[$flag] = $value;
-        $this->save();
-    }
     
     public function setFlags(array $flags): void{
         $this->flags = $flags;
         $this->save();
     }
-
+    
+    public function getFlag(string $flag): bool{
+        if(isset($this->flags[$flag])) return $this->flags[$flag];
+        return false;
+    }
+    
+    public function setFlag(string $flag, bool $value): void{
+        $this->flags[$flag] = $value;
+        $this->save();
+    }
+    
     public function contains(Vector3 $pos, Level $level): bool{
         return ((min($this->pos1->getX(), $this->pos2->getX()) <= $pos->getX()) && (max($this->pos1->getX(), $this->pos2->getX()) >= $pos->getX()) && (min($this->pos1->getY(), $this->pos2->getY()) <= $pos->getY()) && (max($this->pos1->getY(), $this->pos2->getY()) >= $pos->getY()) && (min($this->pos1->getZ(), $this->pos2->getZ()) <= $pos->getZ()) && (max($this->pos1->getZ(), $this->pos2->getZ()) >= $pos->getZ()) && ($this->level === $level->getName()));
     }
-
+    
     public function getLevel(): ?Level{
         LevelShield::getInstance()->getServer()->loadLevel($this->level);
         return LevelShield::getInstance()->getServer()->getLevelByName($this->level);
     }
-
+    
     public function getName(): string{
         return $this->name;
     }

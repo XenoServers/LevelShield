@@ -132,7 +132,6 @@ class EventListener implements Listener {
         foreach($event->getBlockList() as $block){
             if(!PermissionManager::canExplode($block)) array_push($blocks, $block);
         }
-        var_dump($blocks);
         $event->setBlockList(array_diff($event->getBlockList(), $blocks));
     }
     

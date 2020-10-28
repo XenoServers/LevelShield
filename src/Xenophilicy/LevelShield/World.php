@@ -37,7 +37,12 @@ class World {
     public function getFlags(): array{
         return $this->flags;
     }
-
+    
+    public function setFlags(array $flags): void{
+        $this->flags = $flags;
+        $this->save();
+    }
+    
     public function getFlag(string $flag): bool{
         if(isset($this->flags[$flag])) return $this->flags[$flag];
         return false;
@@ -48,15 +53,10 @@ class World {
         $this->save();
     }
     
-    public function setFlags(array $flags): void{
-        $this->flags = $flags;
-        $this->save();
-    }
-
     public function getLevel(): ?Level{
         return LevelShield::getInstance()->getServer()->getLevelByName($this->name);
     }
-
+    
     public function getName(): string{
         return $this->name;
     }
